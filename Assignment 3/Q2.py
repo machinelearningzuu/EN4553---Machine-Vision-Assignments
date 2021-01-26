@@ -21,7 +21,7 @@ np.random.seed(seed)
 tf.random.set_seed(seed)
 
 class GradientTapeLayer2Model:
-    def __init__(self):
+    def __init__(self):Assignment 3
         train_ds, test_ds = prepare_dataset(map_fn_Q2, CIFAR10_data)
         self.train_ds = train_ds
         self.test_ds  = test_ds
