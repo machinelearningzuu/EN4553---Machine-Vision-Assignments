@@ -81,10 +81,10 @@ class CustomGradientUpdate(object):
                 t0 = time()
                 for X, T in self.train_ds:
 
-                    self.w1.assign_sub((self.w1 - self.prev_w1) * self.alpha)
-                    self.w2.assign_sub((self.w2 - self.prev_w2) * self.alpha)
-                    self.b1.assign_sub((self.b1 - self.prev_b1) * self.alpha)
-                    self.b2.assign_sub((self.b2 - self.prev_b2) * self.alpha)
+                    self.w1.assign(tf.subtract(self.w1, (self.w1 - self.prev_w1) * self.alpha))
+                    self.w2.assign(tf.subtract(self.w2, (self.w2 - self.prev_w2) * self.alpha))
+                    self.b1.assign(tf.subtract(self.b1, (self.b1 - self.prev_b1) * self.alpha))
+                    self.b2.assign(tf.subtract(self.b2, (self.b2 - self.prev_b2) * self.alpha))
                     self.prev_w1 = self.w1
                     self.prev_w2 = self.w2
                     self.prev_b1 = self.b1
